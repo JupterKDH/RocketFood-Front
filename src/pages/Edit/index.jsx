@@ -280,7 +280,7 @@ export function Edit({ isAdmin }) {
           </div>
 
           <Section title="Descrição">
-            <Textarea 
+            <TextArea 
               placeholder="Fale brevemente sobre o prato, seus ingredientes e composição"
               defaultValue={description}
               onChange={(e) => setDescription(e.target.value)}
