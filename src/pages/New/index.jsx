@@ -106,9 +106,7 @@ export function New({ isAdmin }) {
       } else {
         alert("Não foi possível cadastrar o prato.");
       }
-    } finally {
-      setLoading(false);
-    }
+    } 
 	}
 
   return (
