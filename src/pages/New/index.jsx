@@ -217,7 +217,7 @@ export function New({ isAdmin }) {
           </div>
 
           <Section title="Descrição">
-            <Textarea 
+            <Textarea
               placeholder="Fale brevemente sobre o prato, seus ingredientes e composição"
               onChange={(e) => setDescription(e.target.value)}
             />
