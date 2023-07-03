@@ -122,8 +122,6 @@ export function Edit({ isAdmin }) {
       return alert("Digite a descrição do prato.");
     }
 
-    setLoading(true);
-
     try {
       const updatedDish = {
         name: name,
@@ -152,9 +150,7 @@ export function Edit({ isAdmin }) {
       } else {
         alert("Não foi possível atualizar o prato.");
       }
-    } finally {
-      setLoading(false);
-    }
+    } 
 	}
 
   async function handleRemoveDish() {
@@ -172,9 +168,7 @@ export function Edit({ isAdmin }) {
         } else {
           alert("erro, não foi possível excluir o prato.");
         }
-      } finally {
-        setLoading(false);
-      }
+      } 
     }
   }
 
