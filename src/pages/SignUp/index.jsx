@@ -24,10 +24,6 @@ export function SignUp() {
       return alert("Preencha todos os campos!");
     }
 
-    if (!/\S+@\S+\.\S+/.test(email)) {
-      return alert("Digite um e-mail válido!");
-    }
-
     if (password.length < 5) {
       return alert("A senha deve ter no mínimo 5 caracteres!");
     }
@@ -45,7 +41,7 @@ export function SignUp() {
           alert("Não foi possível cadastrar.");
         }
       })
-      .finally(() => setLoading(false));
+      
   }
 
   return (
