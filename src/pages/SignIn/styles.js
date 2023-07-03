@@ -11,7 +11,7 @@ export const Container = styled.div`
   gap: 7.3rem;
 
   @media (min-width: 1024px) {
-    margin-inline: 13.1rem;
+    margin: 0 10.8rem 0 15.3rem;
 
     flex-direction: row;
     justify-content: space-between;
@@ -72,6 +72,8 @@ export const Form = styled.form`
   @media (min-width: 1024px) {
     padding: 6.4rem;
     border-radius: 1.6rem;
+
+    max-height: 54rem;
 
     background-color: ${({ theme }) => theme.COLORS.BACKGROUND_700};
 

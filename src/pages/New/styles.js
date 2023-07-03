@@ -173,6 +173,8 @@ export const Image = styled.div`
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
+
+      max-width: calc(100vw - 16rem);
     }
 
     input {

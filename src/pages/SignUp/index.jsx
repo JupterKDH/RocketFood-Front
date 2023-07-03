@@ -15,6 +15,7 @@ export function SignUp() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const navigate = useNavigate();
 
@@ -43,7 +44,8 @@ export function SignUp() {
         } else {
           alert("Não foi possível cadastrar.");
         }
-      });
+      })
+      .finally(() => setLoading(false));
   }
 
   return (

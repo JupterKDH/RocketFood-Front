@@ -11,7 +11,7 @@ import { api } from '../../services/api';
 import { Container, Form, Image, Category } from "./styles";
 
 import { ButtonText } from "../../components/ButtonText";
-import { FoodItem } from '../../components/FoodItem';
+import { FoodItems } from '../../components/FoodItems';
 import { Textarea } from '../../components/Textarea';
 import { Section } from '../../components/Section';
 import { Header } from '../../components/Header';
@@ -24,16 +24,16 @@ export function New({ isAdmin }) {
   const isDesktop = useMediaQuery({ minWidth: 1024 });
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const [name, setName] = useState("");
 	const [description, setDescription] = useState("");
   const [category, setCategory] = useState("");
   const [price, setPrice] = useState("");
+  const [name, setName] = useState("");
 
-  const [image, setImage] = useState(null);
   const [fileName, setFileName] = useState("");
+  const [image, setImage] = useState(null);
 
-  const [tags, setTags] = useState([]);
   const [newTag, setNewTag] = useState("");
+  const [tags, setTags] = useState([]);
 
   const navigate = useNavigate();
 
@@ -80,11 +80,11 @@ export function New({ isAdmin }) {
     }
 
     if (!price) {
-      return alert("Digite o preço do prato.");
+      return alert("Coloque o preço do prato.");
     }
 
     if (!description) {
-      return alert("Digite a descrição do prato.");
+      return alert("Coloque a descrição do prato.");
     }
     
 		const formData = new FormData();
@@ -106,6 +106,8 @@ export function New({ isAdmin }) {
       } else {
         alert("Não foi possível cadastrar o prato.");
       }
+    } finally {
+      setLoading(false);
     }
 	}
 
@@ -188,7 +190,7 @@ export function New({ isAdmin }) {
               <div className="tags">
                 {
                   tags.map((tag, index) => (
-                    <FoodItem
+                    <FoodItems
                       key={String(index)}
                       value={tag}
                       onClick={() => handleRemoveTag(tag)}
@@ -196,7 +198,7 @@ export function New({ isAdmin }) {
                   ))
                 }
 
-                <FoodItem
+                <FoodItems
                   isNew
                   placeholder="Adicionar"
                   onChange={(e) => setNewTag(e.target.value)}

@@ -14,7 +14,7 @@ export function Button({title, loading = false, isClient, ...rest}) {
     >
      {isClient && <TbReceipt size={"3.2rem"}/>}
      {loading ? "Carregando..." : title}
-     {isClient && <span>{isDesktop ? `(&{rest.orderCount})` : rest.orderCount}</span>} 
+     {isClient && <span>{isDesktop ? `(${rest.orderCount})` : rest.orderCount}</span>} 
     </Container>
   );
 }

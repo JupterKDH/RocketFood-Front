@@ -12,12 +12,15 @@ import { Input } from '../../components/Input';
 
 export function SignIn() {
   const [email, setEmail] = useState("");
+  const [loading, setLoading] = useState(false);
   const [password, setPassword] = useState("");
 
   const {signIn} = useAuth();
 
   function handleSignIn(){
-    signIn({email, password});
+    setLoading(true);
+
+    signIn({email, password}).finally(() => setLoading(false));
   }
 
   return (
@@ -39,7 +42,7 @@ export function SignIn() {
 
         <Section title="Senha">
           <Input 
-            placeholder="No mínimo 6 caracteres" 
+            placeholder="No mínimo 5 caracteres" 
             type="password"
             onChange={e => setPassword(e.target.value)}
           />

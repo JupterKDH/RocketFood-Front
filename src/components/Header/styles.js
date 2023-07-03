@@ -23,7 +23,16 @@ export const Container = styled.header`
     justify-content: space-between;
     gap: 3.2rem;
     
-    > button:first-of-type {
+    .favorites {
+      border: 0;
+      background: none;
+
+      line-height: 100%;
+
+      color: ${({ theme }) => theme.COLORS.GRAY_200};
+    }
+
+    .new, .orders {
       max-width: 21.6rem;
     }
   }

@@ -13,6 +13,8 @@ import { Footer } from '../../components/Footer';
 import { Menu } from "../../components/Menu";
 import { Food } from "../../components/Food";
 
+import bannerMobile from "../../assets/bannerM.png";
+import homeBanner from "../../assets/banner-home.png";
 
 register();
 
@@ -28,22 +30,20 @@ export function Home({ isAdmin, user_id }) {
     const options = {
       root: null,
       rootMargin: '0px',
-      threshold: 0.5 // the value in percentage indicates at what visibility the callback should be called
+      threshold: 0.5 
     };
 
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          // If the element is visible, start the Swiper autoplay if the ref is not null
           entry.target.swiper && entry.target.swiper.autoplay.start();
         } else {
-          // If the element is not visible, stop the Swiper autoplay if the ref is not null
           entry.target.swiper && entry.target.swiper.autoplay.stop();
         }        
       });
     }, options);
 
-    // Observe the visibility changes of elements containing Swiper
+    
     observer.observe(swiperElRef1.current);
     observer.observe(swiperElRef2.current);
     observer.observe(swiperElRef3.current);
@@ -59,7 +59,7 @@ export function Home({ isAdmin, user_id }) {
   const navigate = useNavigate();
 
   function handleDetails(id) {
-    navigate(`/dish/${id}`);
+    navigate(`/dishes/${id}`);
   }
 
   useEffect(() => {
@@ -85,7 +85,7 @@ export function Home({ isAdmin, user_id }) {
         
         setFavorites(favorites);
       } catch (error) {
-        console.log("Erro ao buscar favoritos:", error);
+        console.log("Erro, não foi possível encontrar favoritos:", error);
       }
     };
 
@@ -131,10 +131,7 @@ export function Home({ isAdmin, user_id }) {
         <div>
           <header>
             <img 
-              src={isDesktop ? 
-                "../../src/assets/home-banner.png" : 
-                "../../src/assets/banner-mobile.png"
-              } 
+              src={isDesktop ? homeBanner : bannerMobile } 
               alt="Macarons coloridos em tons pastel despencando juntamente com folhas verdes e frutas frescas." 
             />
           
@@ -164,7 +161,7 @@ export function Home({ isAdmin, user_id }) {
                         isFavorite={favorites.includes(dish.id)}
                         updateFavorite={updateFavorite}
                         user_id={user_id}
-                        onClick={() => handleDetails(dish.id)}
+                        handleDetails={handleDetails}
                       />
                     </swiper-slide>
                   ))
@@ -191,7 +188,7 @@ export function Home({ isAdmin, user_id }) {
                         isFavorite={favorites.includes(dish.id)}
                         updateFavorite={updateFavorite}
                         user_id={user_id}
-                        onClick={() => handleDetails(dish.id)}
+                        handleDetails={handleDetails}
                       />
                     </swiper-slide>
                   ))
@@ -218,7 +215,7 @@ export function Home({ isAdmin, user_id }) {
                         isFavorite={favorites.includes(dish.id)}
                         updateFavorite={updateFavorite}
                         user_id={user_id}
-                        onClick={() => handleDetails(dish.id)}
+                        handleDetails={handleDetails}
                       />
                     </swiper-slide>
                   ))

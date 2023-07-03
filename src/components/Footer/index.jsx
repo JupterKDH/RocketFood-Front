@@ -1,6 +1,6 @@
 import { Container, Brand, Copyright } from "./styles";
 
-import brand from "../../assets/footer-brand.svg";
+import brand from "../../assets/brandF.svg";
 
 export function Footer() {
   return (
