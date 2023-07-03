@@ -12,7 +12,7 @@ import { Container, Form, Image, Category } from "./styles";
 
 import { ButtonText } from "../../components/ButtonText";
 import { FoodItems } from '../../components/FoodItems';
-import { Textarea } from '../../components/Textarea';
+import { TextArea } from '../../components/TextArea';
 import { Section } from '../../components/Section';
 import { Header } from '../../components/Header';
 import { Button } from "../../components/Button";
@@ -217,7 +217,7 @@ export function New({ isAdmin }) {
           </div>
 
           <Section title="Descrição">
-            <Textarea
+            <TextArea
               placeholder="Fale brevemente sobre o prato, seus ingredientes e composição"
               onChange={(e) => setDescription(e.target.value)}
             />

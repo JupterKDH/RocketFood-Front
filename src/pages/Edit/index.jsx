@@ -18,7 +18,7 @@ import { Button } from "../../components/Button";
 import { Footer } from '../../components/Footer';
 import { Section } from '../../components/Section';
 import { FoodItems } from '../../components/FoodItems';
-import { Textarea } from '../../components/Textarea';
+import { TextArea } from '../../components/TextArea';
 import { ButtonText } from "../../components/ButtonText";
 
 export function Edit({ isAdmin }) {
